@@ -1,0 +1,33 @@
+# Ember — git color palette
+# Red reserved for real problems (conflicts, deletions, detached HEAD).
+# Routine states (modified, untracked) drop to tertiary gray.
+
+[color "status"]
+    # sage — staged
+    added = "#a8b6a0"
+    # slate — modified, needs attention
+    changed = "#8da4b8"
+    # tertiary gray — routine noise
+    untracked = "#6b6b68"
+    # primary
+    branch = "#ededec"
+    # signal — detached HEAD
+    nobranch = "#ee0000"
+    # signal — conflicts
+    unmerged = "#ee0000"
+
+[color "diff"]
+    meta = "#6b6b68"
+    frag = "#8da4b8"
+    # deletions — real loss
+    old = "#ee0000"
+    # additions
+    new = "#a8b6a0"
+    # wheat — trailing whitespace
+    whitespace = "#cbb994"
+
+[color "branch"]
+    current = "#ededec"
+    local = "#6b6b68"
+    remote = "#6b6b68"
+    upstream = "#6b6b68"

@@ -1,0 +1,185 @@
+# Starship theme — designed palette
+# Warm-neutral grayscale + one signal color (#ee0000).
+# Hierarchy by brightness, not hue.
+add_newline = true
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$golang\
+$bun\
+$deno\
+$ruby\
+$java\
+$kotlin\
+$swift\
+$php\
+$dotnet\
+$elixir\
+$zig\
+$lua\
+$haskell\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
+
+# ── Prompt character ──────────────────────────────────
+# Triangle → success/error variants via color, not shape
+
+[character]
+success_symbol = "[▲](bold #ededec)"
+error_symbol = "[▲](bold #ee0000)"
+vimcmd_symbol = "[◆](bold #ededec)"
+
+# ── Directory ─────────────────────────────────────────
+# Primary focus — highest brightness in the hierarchy
+
+[directory]
+style = "bold #ededec"
+truncation_length = 1
+truncate_to_repo = true
+truncation_symbol = ""
+format = "[$path]($style) "
+read_only = " ◯"
+read_only_style = "#6b6b68"
+
+# ── Git branch ────────────────────────────────────────
+# Tertiary — recedes into warm gray
+
+[git_branch]
+symbol = ""
+style = "#6b6b68"
+format = "[$branch]($style) "
+
+# ── Git status ────────────────────────────────────────
+# Same tertiary level, presence-only indicators
+
+[git_status]
+style = "#6b6b68"
+format = "[$all_status$ahead_behind]($style)"
+modified = "• "
+staged = "+ "
+untracked = "? "
+ahead = "↑ "
+behind = "↓ "
+diverged = "↕ "
+conflicted = "× "
+stashed = "≡ "
+deleted = "✗ "
+renamed = "→ "
+
+# ── Language runtimes ─────────────────────────────────
+# Tertiary warm gray, no icons, only show when relevant
+
+[nodejs]
+symbol = ""
+style = "#6b6b68"
+format = "[node $version]($style) "
+detect_files = ["package.json", ".nvmrc"]
+
+[python]
+symbol = ""
+style = "#6b6b68"
+format = "[py $version]($style) "
+
+[rust]
+symbol = ""
+style = "#6b6b68"
+format = "[rs $version]($style) "
+
+[golang]
+symbol = ""
+style = "#6b6b68"
+format = "[go $version]($style) "
+
+[bun]
+symbol = ""
+style = "#6b6b68"
+format = "[bun $version]($style) "
+detect_files = ["bun.lock", "bun.lockb", "bunfig.toml"]
+
+[deno]
+symbol = ""
+style = "#6b6b68"
+format = "[deno $version]($style) "
+
+[ruby]
+symbol = ""
+style = "#6b6b68"
+format = "[rb $version]($style) "
+
+[java]
+symbol = ""
+style = "#6b6b68"
+format = "[java $version]($style) "
+
+[kotlin]
+symbol = ""
+style = "#6b6b68"
+format = "[kt $version]($style) "
+
+[swift]
+symbol = ""
+style = "#6b6b68"
+format = "[swift $version]($style) "
+
+[php]
+symbol = ""
+style = "#6b6b68"
+format = "[php $version]($style) "
+
+[dotnet]
+symbol = ""
+style = "#6b6b68"
+format = "[.net $version]($style) "
+
+[elixir]
+symbol = ""
+style = "#6b6b68"
+format = "[ex $version]($style) "
+
+[zig]
+symbol = ""
+style = "#6b6b68"
+format = "[zig $version]($style) "
+
+[lua]
+symbol = ""
+style = "#6b6b68"
+format = "[lua $version]($style) "
+
+[haskell]
+symbol = ""
+style = "#6b6b68"
+format = "[hs $version]($style) "
+
+# ── Command duration ──────────────────────────────────
+# Appears only for commands exceeding min_time (2s).
+# Tertiary gray — ambient performance awareness, not a dashboard.
+
+[cmd_duration]
+min_time = 2000
+style = "#6b6b68"
+format = "[$duration]($style) "
+
+# ── Time ──────────────────────────────────────────────
+# Disabled by default. Uncomment the block below for a prompt clock.
+
+# [time]
+# disabled = false
+# style = "#6b6b68"
+# format = "[$time]($style) "
+# time_format = "%H:%M"
+
+# ── Package version ───────────────────────────────────
+# Disabled by default. Uncomment for library/release work.
+
+# [package]
+# disabled = false
+# symbol = ""
+# style = "#6b6b68"
+# format = "[v$version]($style) "
